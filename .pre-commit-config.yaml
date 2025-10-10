@@ -1,0 +1,51 @@
+repos:
+  - repo: https://github.com/antonbabenko/pre-commit-terraform.git
+    rev: v1.100.1
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_docs
+        args:
+          - --hook-config=--path-to-file=README.md
+          - --hook-config=--add-to-existing-file=true
+          - --hook-config=--create-file-if-not-exist=true
+        # files: ^infrastructure/terraform/modules/
+      - id: terraform_checkov
+        args:
+            - '--args=--skip-check=CKV_GCP_65' # Manage Kubernetes RBAC users with Google Groups for GKE (need organization)
+            - '--args=--skip-check=CKV_GCP_66' # Image authorization
+            - '--args=--skip-check=CKV_GCP_69' # Ensure the GKE Metadata Server is Enabled (bug) deprecated
+      - id: terrascan
+      # - id: terraform_trivy
+      #   args:
+      #     - '--args=--skip-rules="AVD-GCP-0053"'
+        files: modules/
+
+      - id: terraform_tflint
+        args:
+          - '--args=--only=terraform_deprecated_interpolation'
+          - '--args=--only=terraform_deprecated_index'
+          - '--args=--only=terraform_unused_declarations'
+          - '--args=--only=terraform_comment_syntax'
+          - '--args=--only=terraform_documented_outputs'
+          - '--args=--only=terraform_documented_variables'
+          - '--args=--only=terraform_typed_variables'
+          - '--args=--only=terraform_module_pinned_source'
+          - '--args=--only=terraform_naming_convention'
+          - '--args=--only=terraform_required_version'
+          - '--args=--only=terraform_required_providers'
+          - '--args=--only=terraform_standard_module_structure'
+          - '--args=--only=terraform_workspace_remote'
+
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.101.0
+    hooks:
+      - id: terragrunt_fmt
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: detect-aws-credentials
+      - id: detect-private-key
