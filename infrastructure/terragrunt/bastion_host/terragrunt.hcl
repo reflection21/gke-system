@@ -17,8 +17,8 @@ dependency "iam" {
 }
 
 inputs = {
-  vpc_network    = dependency.vpc.outputs.vpc_network
-  bastion_subnet = dependency.vpc.outputs.bastion_subnet
+  vpc_network     = dependency.vpc.outputs.vpc_network
+  bastion_subnet  = dependency.vpc.outputs.bastion_subnet
   bastion_host_sa = dependency.iam.outputs.bastion_host_sa
 
 }

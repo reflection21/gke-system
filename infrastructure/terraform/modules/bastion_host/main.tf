@@ -41,4 +41,3 @@ resource "google_compute_instance" "bastion_host" {
 
   tags = ["bastion-host"]
 }
-

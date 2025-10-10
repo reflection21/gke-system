@@ -36,8 +36,8 @@ resource "google_sql_database_instance" "db" {
       retention_interval = "2592000s" # Хранение логов 30 дней
     }
     backup_configuration {
-      enabled                        = true
-      start_time                     = "04:00"
+      enabled    = true
+      start_time = "04:00"
       # point_in_time_recovery_enabled = true   #posgres
       binary_log_enabled             = true # mysql
       location                       = var.gcp_project
@@ -105,4 +105,3 @@ resource "google_sql_user" "reflection" {
     enable_password_verification = true
   }
 }
-

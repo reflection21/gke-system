@@ -19,6 +19,6 @@ variable "bastion_subnet" {
 }
 
 variable "bastion_host_sa" {
-  type = string
+  type        = string
   description = "sa bastion host"
 }

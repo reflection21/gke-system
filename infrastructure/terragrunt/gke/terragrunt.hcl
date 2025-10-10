@@ -20,5 +20,5 @@ inputs = {
   subnetwork          = dependency.vpc.outputs.subnetwork
   bastion_subnet_cidr = dependency.vpc.outputs.bastion_subnet_cidr
   worker_subnet_cidr  = dependency.vpc.outputs.worker_subnet_cidr
-  node_pool_sa = dependency.iam.outputs.node_pool_sa
+  node_pool_sa        = dependency.iam.outputs.node_pool_sa
 }

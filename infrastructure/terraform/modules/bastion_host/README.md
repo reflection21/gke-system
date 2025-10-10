@@ -1,4 +1,4 @@
-# firewall
+# bastion_host
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -22,17 +22,18 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [google_compute_firewall.ssh_bastion](https://registry.terraform.io/providers/hashicorp/google/7.4.0/docs/resources/compute_firewall) | resource |
-| [google_project_iam_member.iap_tunnel](https://registry.terraform.io/providers/hashicorp/google/7.4.0/docs/resources/project_iam_member) | resource |
+| [google_compute_instance.bastion_host](https://registry.terraform.io/providers/hashicorp/google/7.4.0/docs/resources/compute_instance) | resource |
+| [google_compute_zones.available_zones](https://registry.terraform.io/providers/hashicorp/google/7.4.0/docs/data-sources/compute_zones) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_bastion_host_sa"></a> [bastion\_host\_sa](#input\_bastion\_host\_sa) | sa bastion host | `string` | n/a | yes |
 | <a name="input_bastion_subnet"></a> [bastion\_subnet](#input\_bastion\_subnet) | bastion subnet | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | GCP Project ID where resources will be created. | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | GCP Region. | `string` | n/a | yes |
-| <a name="input_vpc_network"></a> [vpc\_network](#input\_vpc\_network) | my vpc | `string` | n/a | yes |
+| <a name="input_vpc_network"></a> [vpc\_network](#input\_vpc\_network) | vpc | `string` | n/a | yes |
 
 ## Outputs
 

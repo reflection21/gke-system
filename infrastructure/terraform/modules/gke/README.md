@@ -24,9 +24,6 @@ No modules.
 |------|------|
 | [google_container_cluster.my_cluster](https://registry.terraform.io/providers/hashicorp/google/7.4.0/docs/resources/container_cluster) | resource |
 | [google_container_node_pool.node_pool](https://registry.terraform.io/providers/hashicorp/google/7.4.0/docs/resources/container_node_pool) | resource |
-| [google_project_iam_member.gke_nodes](https://registry.terraform.io/providers/hashicorp/google/7.4.0/docs/resources/project_iam_member) | resource |
-| [google_project_iam_member.gke_nodes_compute](https://registry.terraform.io/providers/hashicorp/google/7.4.0/docs/resources/project_iam_member) | resource |
-| [google_service_account.node_pool](https://registry.terraform.io/providers/hashicorp/google/7.4.0/docs/resources/service_account) | resource |
 | [google_compute_zones.available_zones](https://registry.terraform.io/providers/hashicorp/google/7.4.0/docs/data-sources/compute_zones) | data source |
 
 ## Inputs
@@ -35,8 +32,9 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_bastion_subnet_cidr"></a> [bastion\_subnet\_cidr](#input\_bastion\_subnet\_cidr) | bastion subnet | `string` | n/a | yes |
 | <a name="input_deployment_prefix"></a> [deployment\_prefix](#input\_deployment\_prefix) | Prefix of the deployment | `string` | n/a | yes |
-| <a name="input_gcp_project"></a> [gcp\_project](#input\_gcp\_project) | GCP Project ID where resources will be created. | `string` | n/a | yes |
-| <a name="input_gcp_region"></a> [gcp\_region](#input\_gcp\_region) | GCP Region. | `string` | n/a | yes |
+| <a name="input_node_pool_sa"></a> [node\_pool\_sa](#input\_node\_pool\_sa) | node\_pool\_sa | `string` | n/a | yes |
+| <a name="input_project_id"></a> [project\_id](#input\_project\_id) | GCP Project ID where resources will be created. | `string` | n/a | yes |
+| <a name="input_region"></a> [region](#input\_region) | GCP Region. | `string` | n/a | yes |
 | <a name="input_subnetwork"></a> [subnetwork](#input\_subnetwork) | network for gke | `string` | n/a | yes |
 | <a name="input_vpc_network"></a> [vpc\_network](#input\_vpc\_network) | network for gke | `string` | n/a | yes |
 | <a name="input_worker_subnet_cidr"></a> [worker\_subnet\_cidr](#input\_worker\_subnet\_cidr) | bastion subnet | `string` | n/a | yes |

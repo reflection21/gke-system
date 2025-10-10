@@ -11,7 +11,7 @@ variable "gcp_project" {
 variable "db_instance_name" {
   type        = string
   description = "db instance name"
-  default = "db"
+  default     = "db"
 }
 
 variable "vpc" {

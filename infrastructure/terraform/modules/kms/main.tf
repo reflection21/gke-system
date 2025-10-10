@@ -19,5 +19,3 @@ resource "google_kms_crypto_key_iam_member" "gke_node_kms_access" {
   role          = "roles/cloudkms.cryptoKeyEncrypterDecrypter"
   member        = "serviceAccount:${var.sa_node_pool}"
 }
-
-
