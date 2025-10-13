@@ -16,7 +16,7 @@ resource "google_container_cluster" "my_cluster" {
   initial_node_count       = 1
   remove_default_node_pool = true
   network                  = var.vpc_network
-  subnetwork               = var.subnetwork
+  subnetwork               = var.node_subnet
 
   # private cluster
   private_cluster_config {
@@ -30,7 +30,7 @@ resource "google_container_cluster" "my_cluster" {
       display_name = "bastion"
     }
     cidr_blocks {
-      cidr_block   = var.worker_subnet_cidr
+      cidr_block   = var.node_subnet_cidr
       display_name = "workers"
     }
   }

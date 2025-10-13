@@ -40,9 +40,7 @@ resource "google_compute_instance" "bastion_host" {
   metadata_startup_script = <<-EOT
     #!/bin/bash
     set -e
-    apt-get update -y
-    gcloud components install kubectl -q
-    apt-get install -y google-cloud-cli-gke-gcloud-auth-plugin
+    sudo apt-get update -y && apt-get install kubectl google-cloud-cli-gke-gcloud-auth-plugin -y
   EOT
 
   tags = ["bastion-host"]

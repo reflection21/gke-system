@@ -17,8 +17,8 @@ dependency "iam" {
 
 inputs = {
   vpc_network         = dependency.vpc.outputs.vpc_network
-  subnetwork          = dependency.vpc.outputs.node_subnet
+  node_subnet          = dependency.vpc.outputs.node_subnet
   bastion_subnet_cidr = dependency.vpc.outputs.bastion_subnet_cidr
-  worker_subnet_cidr  = dependency.vpc.outputs.node_subnet_cidr
+  node_subnet_cidr  = dependency.vpc.outputs.node_subnet_cidr
   node_pool_sa        = dependency.iam.outputs.node_pool_sa
 }

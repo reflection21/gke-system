@@ -10,7 +10,7 @@ terraform {
     }
     helm = {
       source  = "hashicorp/helm"
-      version = "~> 2.8"
+      version = "3.0.2"
     }
   }
   required_version = ">= 1.12.0"
@@ -25,3 +25,4 @@ provider "helm" {
     config_path = "~/.kube/config"
   }
 }
+

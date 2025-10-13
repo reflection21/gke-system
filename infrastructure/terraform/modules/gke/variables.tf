@@ -3,7 +3,7 @@ variable "vpc_network" {
   description = "network for gke"
 }
 
-variable "subnetwork" {
+variable "node_subnet" {
   type        = string
   description = "network for gke"
 }
@@ -28,7 +28,7 @@ variable "bastion_subnet_cidr" {
   type        = string
 }
 
-variable "worker_subnet_cidr" {
+variable "node_subnet_cidr" {
   description = "bastion subnet"
   type        = string
 }
