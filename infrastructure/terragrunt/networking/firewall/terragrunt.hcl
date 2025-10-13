@@ -10,8 +10,8 @@ include "root" {
 
 dependency "vpc" {
   config_path = "../vpc"
-    mock_outputs = {
-    vpc_network        = "mock-vpc"
+  mock_outputs = {
+    vpc_network         = "mock-vpc"
     bastion_subnet_cidr = "10.0.1.0/24"
   }
 }

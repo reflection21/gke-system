@@ -27,7 +27,7 @@ No modules.
 | [google_compute_router_nat.nat](https://registry.terraform.io/providers/hashicorp/google/7.5.0/docs/resources/compute_router_nat) | resource |
 | [google_compute_subnetwork.bastion_subnet](https://registry.terraform.io/providers/hashicorp/google/7.5.0/docs/resources/compute_subnetwork) | resource |
 | [google_compute_subnetwork.db_subnet](https://registry.terraform.io/providers/hashicorp/google/7.5.0/docs/resources/compute_subnetwork) | resource |
-| [google_compute_subnetwork.worker_subnet](https://registry.terraform.io/providers/hashicorp/google/7.5.0/docs/resources/compute_subnetwork) | resource |
+| [google_compute_subnetwork.node_subnet](https://registry.terraform.io/providers/hashicorp/google/7.5.0/docs/resources/compute_subnetwork) | resource |
 
 ## Inputs
 
@@ -43,7 +43,7 @@ No modules.
 | <a name="output_bastion_subnet"></a> [bastion\_subnet](#output\_bastion\_subnet) | bastion subnet |
 | <a name="output_bastion_subnet_cidr"></a> [bastion\_subnet\_cidr](#output\_bastion\_subnet\_cidr) | CIDR range of the bastion subnet |
 | <a name="output_db_subnet"></a> [db\_subnet](#output\_db\_subnet) | db subnet |
-| <a name="output_subnetwork"></a> [subnetwork](#output\_subnetwork) | subnet for gke |
+| <a name="output_node_subnet"></a> [node\_subnet](#output\_node\_subnet) | node subnet |
+| <a name="output_node_subnet_cidr"></a> [node\_subnet\_cidr](#output\_node\_subnet\_cidr) | CIDR range of the node subnet |
 | <a name="output_vpc_network"></a> [vpc\_network](#output\_vpc\_network) | output of vpc |
-| <a name="output_worker_subnet_cidr"></a> [worker\_subnet\_cidr](#output\_worker\_subnet\_cidr) | CIDR range of the worker subnet |
 <!-- END_TF_DOCS -->

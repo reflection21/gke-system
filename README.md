@@ -30,4 +30,3 @@ gcloud container clusters get-credentials k8s-k8s-cluster --region europe-north2
 ### install argo into kube
 
 kubectl create namespace argocd
-

@@ -42,7 +42,7 @@ resource "google_compute_instance" "bastion_host" {
     set -e
     apt-get update -y
     gcloud components install kubectl -q
-    apt-get install -y google-cloud-cli-gke-gcloud-auth-plugin  
+    apt-get install -y google-cloud-cli-gke-gcloud-auth-plugin
   EOT
 
   tags = ["bastion-host"]

@@ -92,6 +92,3 @@ resource "google_compute_router_nat" "nat" {
 #   next_hop_gateway = "default-internet-gateway"
 #   priority         = 1000
 # }
-
-
-
