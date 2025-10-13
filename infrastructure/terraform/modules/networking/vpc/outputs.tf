@@ -3,9 +3,9 @@ output "vpc_network" {
   description = "output of vpc"
 }
 
-output "subnetwork" {
-  value       = google_compute_subnetwork.worker_subnet.name
-  description = "subnet for gke"
+output "node_subnet" {
+  value       = google_compute_subnetwork.node_subnet.name
+  description = "node subnet"
 }
 
 output "bastion_subnet" {
@@ -18,9 +18,9 @@ output "db_subnet" {
   description = "db subnet"
 }
 
-output "worker_subnet_cidr" {
-  value       = google_compute_subnetwork.worker_subnet.ip_cidr_range
-  description = "CIDR range of the worker subnet"
+output "node_subnet_cidr" {
+  value       = google_compute_subnetwork.node_subnet.ip_cidr_range
+  description = "CIDR range of the node subnet"
 }
 
 output "bastion_subnet_cidr" {

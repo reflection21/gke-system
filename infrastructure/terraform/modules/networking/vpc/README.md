@@ -23,7 +23,6 @@ No modules.
 | Name | Type |
 |------|------|
 | [google_compute_network.my_vpc](https://registry.terraform.io/providers/hashicorp/google/7.5.0/docs/resources/compute_network) | resource |
-| [google_compute_route.default_internet](https://registry.terraform.io/providers/hashicorp/google/7.5.0/docs/resources/compute_route) | resource |
 | [google_compute_router.router](https://registry.terraform.io/providers/hashicorp/google/7.5.0/docs/resources/compute_router) | resource |
 | [google_compute_router_nat.nat](https://registry.terraform.io/providers/hashicorp/google/7.5.0/docs/resources/compute_router_nat) | resource |
 | [google_compute_subnetwork.bastion_subnet](https://registry.terraform.io/providers/hashicorp/google/7.5.0/docs/resources/compute_subnetwork) | resource |

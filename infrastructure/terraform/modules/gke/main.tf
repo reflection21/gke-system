@@ -106,7 +106,7 @@ resource "google_container_node_pool" "node_pool" {
       enable_secure_boot          = true # Ensure node boot components are verified
       enable_integrity_monitoring = true
     }
-    preemptible  = false
+    preemptible  = true
     machine_type = "e2-standard-2"
 
     oauth_scopes = [

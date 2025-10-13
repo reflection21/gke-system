@@ -1,11 +1,11 @@
 locals {
-  project_id        = "gke-system"
-  deployment_prefix = "prod"
-  region            = "europe-west10"
+  project_id        = "my-system-474719"
+  deployment_prefix = "k8s"
+  region            = "europe-north2"
 
   default_tags = {
     "TerminationDate"  = "Permanent",
-    "Environment"      = "Prod",
+    "Environment"      = "Main",
     "Team"             = "DevOps",
     "DeployedBy"       = "Terraform",
     "OwnerEmail"       = "artembryhynets@gmail.com"

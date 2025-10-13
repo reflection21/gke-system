@@ -4,12 +4,12 @@ resource "google_compute_network" "my_vpc" {
   routing_mode                    = "REGIONAL"
   mtu                             = 1460
   auto_create_subnetworks         = false
-  delete_default_routes_on_create = true
+  delete_default_routes_on_create = false
 }
 # kubernetes workers subnet
-resource "google_compute_subnetwork" "worker_subnet" {
+resource "google_compute_subnetwork" "node_subnet" {
   region                   = var.region
-  name                     = "worker-subnet"
+  name                     = "node-subnet"
   network                  = google_compute_network.my_vpc.name
   stack_type               = "IPV4_ONLY"
   ip_cidr_range            = "192.168.0.0/24"
@@ -33,7 +33,7 @@ resource "google_compute_subnetwork" "bastion_subnet" {
   name                     = "bastion-subnet"
   network                  = google_compute_network.my_vpc.name
   stack_type               = "IPV4_ONLY"
-  ip_cidr_range            = "192.168.1.0/29"
+  ip_cidr_range            = "192.168.11.0/29"
   private_ip_google_access = true
   log_config {
     aggregation_interval = "INTERVAL_5_MIN"
@@ -46,7 +46,7 @@ resource "google_compute_subnetwork" "db_subnet" {
   name                     = "database-subnet"
   network                  = google_compute_network.my_vpc.name
   stack_type               = "IPV4_ONLY"
-  ip_cidr_range            = "192.168.2.0/24"
+  ip_cidr_range            = "192.168.12.0/29"
   private_ip_google_access = true
   log_config {
     aggregation_interval = "INTERVAL_5_MIN"
@@ -54,8 +54,6 @@ resource "google_compute_subnetwork" "db_subnet" {
     metadata             = "INCLUDE_ALL_METADATA"
   }
 }
-
-
 # router
 resource "google_compute_router" "router" {
   name        = "router"
@@ -74,11 +72,11 @@ resource "google_compute_router_nat" "nat" {
   type                               = "PUBLIC"
 
   subnetwork {
-    name                    = google_compute_subnetwork.bastion_subnet.name
+    name                    = google_compute_subnetwork.bastion_subnet.id
     source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
   }
   subnetwork {
-    name                    = google_compute_subnetwork.worker_subnet.name
+    name                    = google_compute_subnetwork.node_subnet.id
     source_ip_ranges_to_nat = ["PRIMARY_IP_RANGE"]
   }
   log_config {
@@ -87,10 +85,13 @@ resource "google_compute_router_nat" "nat" {
   }
 }
 
-resource "google_compute_route" "default_internet" {
-  name             = "default-internet-route"
-  network          = google_compute_network.my_vpc.name
-  dest_range       = "0.0.0.0/0"
-  next_hop_gateway = "default-internet-gateway"
-  priority         = 1000
-}
+# resource "google_compute_route" "default_internet" {
+#   name             = "default-internet-route"
+#   network          = google_compute_network.my_vpc.name
+#   dest_range       = "0.0.0.0/0"
+#   next_hop_gateway = "default-internet-gateway"
+#   priority         = 1000
+# }
+
+
+

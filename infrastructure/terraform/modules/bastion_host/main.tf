@@ -29,15 +29,21 @@ resource "google_compute_instance" "bastion_host" {
   }
 
   service_account {
-    # email  = var.bastion_host_sa
-    email  = "gcp-terraform@gke-system.iam.gserviceaccount.com"
+    email  = var.bastion_host_sa
     scopes = ["cloud-platform"]
   }
 
   metadata = {
     enable-oslogin = "TRUE" # Enables or disables SSH key management on your project
-    user-data      = file("./cloud_init/install_package.yaml")
   }
+
+  metadata_startup_script = <<-EOT
+    #!/bin/bash
+    set -e
+    apt-get update -y
+    gcloud components install kubectl -q
+    apt-get install -y google-cloud-cli-gke-gcloud-auth-plugin  
+  EOT
 
   tags = ["bastion-host"]
 }
