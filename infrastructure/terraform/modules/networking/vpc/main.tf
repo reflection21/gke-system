@@ -33,7 +33,7 @@ resource "google_compute_subnetwork" "bastion_subnet" {
   name                     = "bastion-subnet"
   network                  = google_compute_network.my_vpc.name
   stack_type               = "IPV4_ONLY"
-  ip_cidr_range            = "192.168.11.0/29"
+  ip_cidr_range            = "192.168.11.0/24"
   private_ip_google_access = true
   log_config {
     aggregation_interval = "INTERVAL_5_MIN"
@@ -46,7 +46,7 @@ resource "google_compute_subnetwork" "db_subnet" {
   name                     = "database-subnet"
   network                  = google_compute_network.my_vpc.name
   stack_type               = "IPV4_ONLY"
-  ip_cidr_range            = "192.168.12.0/29"
+  ip_cidr_range            = "192.168.12.0/24"
   private_ip_google_access = true
   log_config {
     aggregation_interval = "INTERVAL_5_MIN"

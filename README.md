@@ -50,10 +50,17 @@ ssh-add  ~/.ssh/gitlab
 
 git clone git@gitlab.com:reflection21/gke_system.git
 
-
 ### install helm
 sudo apt-get install curl gpg apt-transport-https --yes
 curl -fsSL https://packages.buildkite.com/helm-linux/helm-debian/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
 echo "deb [signed-by=/usr/share/keyrings/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
 sudo apt-get update
 sudo apt-get install helm
+
+### connect to argo server 
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+gcloud compute ssh bastion-host \
+  --tunnel-through-iap \
+  --zone=europe-north2-a \
+  -- -L 8085:localhost:8080

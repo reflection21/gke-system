@@ -8,13 +8,13 @@ include "root" {
 }
 
 
-dependency "gke" {
-  config_path = "../gke"
+dependency "iam" {
+  config_path = "../iam"
   mock_outputs = {
     registry_key = "mock-kms-output"
   }
 }
 
 inputs = {
-  sa_node_pool = dependency.gke.outputs.sa_node_pool
+  sa_node_pool = dependency.iam.outputs.node_pool_sa
 }

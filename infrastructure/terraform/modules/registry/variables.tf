@@ -1,4 +1,4 @@
-variable "gcp_region" {
+variable "region" {
   type        = string
   description = "GCP Region."
 }
@@ -8,7 +8,7 @@ variable "registry_key" {
   description = "key for encrypt repo"
 }
 
-variable "gcp_project" {
+variable "project_id" {
   type        = string
   description = "GCP Project ID where resources will be created."
 }

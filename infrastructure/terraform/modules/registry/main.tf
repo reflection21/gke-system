@@ -3,11 +3,11 @@ data "google_project" "project" {}
 resource "google_kms_crypto_key_iam_member" "registry_kms" {
   crypto_key_id = var.registry_key
   role          = "roles/cloudkms.cryptoKeyEncrypterDecrypter"
-  member        = "serviceAccount:service-${data.google_project.project.number}9@gcp-sa-artifactregistry.iam.gserviceaccount.com"
+  member        = "serviceAccount:service-${data.google_project.project.number}@gcp-sa-artifactregistry.iam.gserviceaccount.com"
 }
 
 resource "google_artifact_registry_repository" "docker_repo" {
-  location      = var.gcp_region
+  location      = var.region
   repository_id = "my-docker-repo"
   format        = "DOCKER"
   description   = "Docker repo for my apps"
@@ -15,5 +15,5 @@ resource "google_artifact_registry_repository" "docker_repo" {
   labels = {
     env = "${var.deployment_prefix}-docker-repo"
   }
-  depends_on = [google_kms_crypto_key_iam_member.registry_kms.id]
+  depends_on = [google_kms_crypto_key_iam_member.registry_kms]
 }

@@ -1,7 +1,7 @@
 # create KMS KeyRing (container for keys)
 resource "google_kms_key_ring" "keys_repo" {
   name     = "repo_for_keys_newwwww"
-  location = var.gcp_region
+  location = var.region
 }
 # create key
 resource "google_kms_crypto_key" "registry_key" {
@@ -15,7 +15,7 @@ resource "google_kms_crypto_key" "registry_key" {
 }
 # binding registry key to node pool sa
 resource "google_kms_crypto_key_iam_member" "gke_node_kms_access" {
-  crypto_key_id = var.registry_key
+  crypto_key_id = google_kms_crypto_key.registry_key.id
   role          = "roles/cloudkms.cryptoKeyEncrypterDecrypter"
   member        = "serviceAccount:${var.sa_node_pool}"
 }
